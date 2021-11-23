@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
@@ -22,4 +23,22 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    
+    public void launchEffect(AreaTypes type)
+    {
+        switch (type)
+        {
+            case AreaTypes.OnlinePayement:
+                break;
+            case AreaTypes.HrDepartment:
+                break;
+            case AreaTypes.ItDepartment:
+                break;
+            case AreaTypes.SalesDepartment:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
+    }
 }
+
