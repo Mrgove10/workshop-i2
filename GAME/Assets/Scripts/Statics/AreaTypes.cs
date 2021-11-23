@@ -11,6 +11,5 @@
         HighSpeedTrading,
         AccountingDepartment, //fraud analysis 
         CryptoTrading,
-        Marketing //useless but if they want
     }
 }
