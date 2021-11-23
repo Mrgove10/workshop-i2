@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour
     
     private void UpdateUI()
     {
-        BudgetBar.GetComponent<Text>().text = budget.ToString();
-        QuantiumBar.GetComponent<Text>().text = quantium.ToString();
-        SecurityBar.GetComponent<Text>().text = security.ToString();
+      //  BudgetBar.GetComponent<Text>().text = budget.ToString();
+      // QuantiumBar.GetComponent<Text>().text = quantium.ToString();
+       // SecurityBar.GetComponent<Text>().text = security.ToString();
     }
 }
 
