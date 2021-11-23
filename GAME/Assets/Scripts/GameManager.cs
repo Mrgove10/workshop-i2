@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using Statics;
 using UnityEngine;
 using UnityEngine.UI;
 

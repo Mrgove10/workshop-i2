@@ -1,3 +1,4 @@
+using Statics;
 using UnityEngine;
 
 public class ClickTarget : MonoBehaviour
