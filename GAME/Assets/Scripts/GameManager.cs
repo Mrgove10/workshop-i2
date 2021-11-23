@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private float Quantiq = 0;
-    private float Security = 0;
-    private float Budget = 0;
+    [ReadOnly]
+    public float Quantiq = 0;
+    [ReadOnly]
+    public float Security = 0;
+    [ReadOnly]
+    public float Budget = 0;
     // Start is called before the first frame update
     void Start()
     {
