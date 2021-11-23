@@ -1,15 +1,44 @@
 .container {
-    background-color: lightgrey;
+    background-color: rgba(255, 255, 255, 0.3);
     height: 100vh;
-    display: flex;
-    justify-content: center;
     padding: 25px;
 }
 
-.iframeContainer {
-    width: 80%;
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
 }
 
-.iframeContainer iframe {
+.iframeContainer {
+    display: flex;
+    justify-content: center;
+    max-width: 720px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.iframeVideo {
     width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.cloudContainer {
+    position: absolute;
+    z-index: -1;
+}
+
+.logoContainer {
+    margin-top: 65px;
+}
+
+.boysContainer {
+    position: absolute;
+    left: 250px;
+    display: flex;
+}
+
+.spacingDiv {
+    width: 540px;
 }
