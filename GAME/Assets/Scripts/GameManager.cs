@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [ReadOnly]
-    public float quantiq = 0;
+    public float quantium = 0;
     [ReadOnly]
     public float security = 0;
     [ReadOnly]
     public float budget = 0;
 
+    public GameObject BudgetBar;
+    public GameObject QuantiumBar;
+    public GameObject SecurityBar;
+    
     public GameObject popup;
 
     public Button popupCloseButton;
@@ -20,12 +24,14 @@ public class GameManager : MonoBehaviour
     {
         // in case we forgot to uncheck it in ht editor
         ClosePopup();
+        // add a listening on the close button
+        popupCloseButton.onClick.AddListener(ClosePopup);
     }
 
     // Update is called once per frame
     void Update()
     {
-        popupCloseButton.onClick.AddListener(ClosePopup);
+        UpdateUI();
     }
 
     private void LaunchPopup()
@@ -44,6 +50,13 @@ public class GameManager : MonoBehaviour
     public void LaunchEffect(AreaTypes type)
     {
          LaunchPopup();
+    }
+    
+    private void UpdateUI()
+    {
+        BudgetBar.GetComponent<Text>().text = budget.ToString();
+        QuantiumBar.GetComponent<Text>().text = quantium.ToString();
+        SecurityBar.GetComponent<Text>().text = security.ToString();
     }
 }
 
