@@ -1,0 +1,15 @@
+.container {
+    background-color: lightgrey;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.iframeContainer {
+    width: 80%;
+}
+
+.iframeContainer iframe {
+    width: 100%;
+}
