@@ -1,44 +1,48 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [ReadOnly]
-    public float Quantiq = 0;
+    public float quantiq = 0;
     [ReadOnly]
-    public float Security = 0;
+    public float security = 0;
     [ReadOnly]
-    public float Budget = 0;
+    public float budget = 0;
+
+    public GameObject popup;
+
+    public Button popupCloseButton;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // in case we forgot to uncheck it in ht editor
+        ClosePopup();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        popupCloseButton.onClick.AddListener(ClosePopup);
+    }
+
+    private void LaunchPopup()
+    {
+        Debug.Log("Launching popup");
+        popup.SetActive(true);
+    }
+
+    
+    private void ClosePopup()
+    {
+        Debug.Log("Closing popup");
+        popup.SetActive(false);
     }
     
-    public void launchEffect(AreaTypes type)
+    public void LaunchEffect(AreaTypes type)
     {
-        switch (type)
-        {
-            case AreaTypes.OnlinePayement:
-                break;
-            case AreaTypes.HrDepartment:
-                break;
-            case AreaTypes.ItDepartment:
-                break;
-            case AreaTypes.SalesDepartment:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(type), type, null);
-        }
+         LaunchPopup();
     }
 }
 
