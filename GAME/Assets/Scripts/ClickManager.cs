@@ -17,6 +17,7 @@ public class ClickManager : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.collider.transform.name);
+                gameManager.LaunchEffect(hit.collider.GetComponent<ClickTarget>().type);
             }  
         } 
     }

@@ -9,7 +9,7 @@
         DatabaseSecurity,
         RealtimeFraudAnalysis,
         HighSpeedTrading,
-        AccountingDepartment, //fraud analysis 
+        AccountingDepartment,
         CryptoTrading,
     }
 }
