@@ -1,7 +1,9 @@
+using System;
 using NaughtyAttributes;
 using Statics;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,8 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject SecurityBar;
     
     public GameObject popup;
+    public TMP_Text PopUpTitle;
+    public TMP_Text PopUpDescription;
 
     public Button popupCloseButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,18 +45,58 @@ public class GameManager : MonoBehaviour
         popup.SetActive(true);
     }
 
-    
     private void ClosePopup()
     {
         Debug.Log("Closing popup");
         popup.SetActive(false);
     }
-    
+
     public void LaunchEffect(AreaTypes type)
     {
-         LaunchPopup();
+
+        switch (type)
+        {
+            case AreaTypes.OnlinePayement:
+                PopUpTitle.text = OnlinePayementInfo.Nom;
+                PopUpDescription.text = OnlinePayementInfo.Description;
+            break;
+            case AreaTypes.HrDepartment:
+                PopUpTitle.text = HrDepartmentInfo.Nom;
+                PopUpDescription.text = HrDepartmentInfo.Description;
+            break;
+            case AreaTypes.ItDepartment:
+                PopUpTitle.text =ItDepartmentInfo.Nom;
+                PopUpDescription.text = ItDepartmentInfo.Description;
+            break;
+            case AreaTypes.SalesDepartment:
+                PopUpTitle.text =SalesDepartmentInfo.Nom;
+                PopUpDescription.text = SalesDepartmentInfo.Description;
+            break;
+            case AreaTypes.DatabaseSecurity:
+                PopUpTitle.text =DatabaseSecurityInfo.Nom;
+                PopUpDescription.text = DatabaseSecurityInfo.Description;
+            break;
+            case AreaTypes.RealtimeFraudAnalysis:
+                PopUpTitle.text =RealtimeFraudAnalysisInfo.Nom;
+                PopUpDescription.text = RealtimeFraudAnalysisInfo.Description;
+            break;
+            case AreaTypes.HighSpeedTrading:
+                PopUpTitle.text =HighSpeedTradingInfo.Nom;
+                PopUpDescription.text = HighSpeedTradingInfo.Description;
+            break;
+            case AreaTypes.AccountingDepartment:
+                PopUpTitle.text =AccountingDepartmentInfo.Nom;
+                PopUpDescription.text = AccountingDepartmentInfo.Description;
+            break;
+            case AreaTypes.CryptoTrading:
+                PopUpTitle.text = CryptoTradingInfo.Nom;
+                PopUpDescription.text = CryptoTradingInfo.Description;
+            break;
+        }
+
+        LaunchPopup();
     }
-    
+
     private void UpdateUI()
     {
       //  BudgetBar.GetComponent<Text>().text = budget.ToString();

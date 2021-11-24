@@ -4,9 +4,9 @@ using Statics;
 
 public class HrDepartmentInfo
 {
-    public string Nom = "Service des Ressources Humaines";
-    public string Description = "Ce service est responsable des ressouces humaines de l'organisation.";
-    public List<Actions> ActionsList = new List<Actions>{
+    public static string Nom = "Service des Ressources Humaines";
+    public static string Description = "Ce service est responsable des ressouces humaines de l'organisation.";
+    public static List<Actions> ActionsList = new List<Actions>{
         new Actions(
             "Améliorer la recherche d'informations sur un candidat grâce au quantique.",
             "L'investissement pourrait peut-être améliorer le recrutement, faire chuter le taux de turn-over et de potentielles failles humaines de sécurité.",

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using Statics;
 
-public class DatabaseSecurityInfo
+public static class DatabaseSecurityInfo
 {
-    public string Nom = "Sécurisation des bases de données";
-    public string Description = "Ce service est responsable de l'intégrité et la sécurisation des données du SI.";
-    public List<Actions> ActionsList = new List<Actions>{
+    public static string Nom = "Sécurisation des bases de données";
+    public static string Description = "Ce service est responsable de l'intégrité et la sécurisation des données du SI.";
+    public static List<Actions> ActionsList = new List<Actions>{
         new Actions(
             "Sous-traiter les calculs à un service cloud quantiques.",
             "L'investissement pourrait peut-être améliorer le chiffrement des données et la sécurisation des accès.",

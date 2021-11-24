@@ -4,9 +4,9 @@ using Statics;
 
 public class SalesDepartmentInfo
 {
-    public string Nom = "Service commercial";
-    public string Descripton = "Ce service regroupe tous les commerciaux de la banque, il sont nécessaire pour démarcher les nouveaux clients";
-    public List<Actions> ActionsList = new List<Actions>{
+    public static string Nom = "Service commercial";
+    public static string Description = "Ce service regroupe tous les commerciaux de la banque, il sont nécessaire pour démarcher les nouveaux clients";
+    public static List<Actions> ActionsList = new List<Actions>{
         new Actions(
             "Ajouter un service cloud quantique pour trouver de nouveaux clients.",
             "La sous-traitance des calculs pourrait peut-être une solution pour rechercher de nouveaux clients",

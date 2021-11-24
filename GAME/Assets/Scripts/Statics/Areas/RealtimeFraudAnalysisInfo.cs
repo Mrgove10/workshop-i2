@@ -4,9 +4,9 @@ using Statics;
 
 public class RealtimeFraudAnalysisInfo
 {
-    public string Nom = "Analyse de fraude en temps réel";
-    public string Description = "Ce service contrôle les transactions pour vérifier leur légitimité.";
-    public List<Actions> ActionsList = new List<Actions>{
+    public static string Nom = "Analyse de fraude en temps réel";
+    public static string Description = "Ce service contrôle les transactions pour vérifier leur légitimité.";
+    public static List<Actions> ActionsList = new List<Actions>{
         new Actions(
             "Sous traiter les calculs à un service cloud quantique.",
             "La sous-traitance des calculs pourrait peut-être augmenter l'efficience des algorithmes et réduire les fraudes",

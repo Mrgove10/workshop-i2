@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using Statics;
 
-public class ItDepartmentInfo
+public static class ItDepartmentInfo
 {
-    public string Nom = "Service Informatique";
-    public string Description = "Ce service est responsable du support et innovations techniques.";
-    public List<Actions> ActionsList = new List<Actions>{
+    public static string Nom = "Service Informatique";
+    public static string Description = "Ce service est responsable du support et innovations techniques.";
+    public static List<Actions> ActionsList = new List<Actions>{
         new Actions(
             "Utiliser les services clouds quantique pour accélerer le développement des applicatifs en ",
             "Un ordinateur plus rapide pourrait peut-être améliorer la productivité des développeurs.",
