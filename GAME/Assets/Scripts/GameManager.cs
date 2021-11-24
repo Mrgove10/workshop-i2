@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject popup;
     public TMP_Text PopUpTitle;
     public TMP_Text PopUpDescription;
+    public GameObject Action1;
+    public GameObject Action2;
 
     public Button popupCloseButton;
 
