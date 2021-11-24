@@ -26,20 +26,28 @@ function HomeScreen(props: any) {
             <div className="boysContainer">
                 <img
                     src={marco}
-                    width="500"
+                    width="300"
                 />
-                <div className="spacingDiv"/>
+                <div className="iframeVideoContainer">
+                    <iframe className="iframeVideo"
+                        src="https://www.youtube.com/embed/3DJAwvLZp9Q"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen>
+                    </iframe>
+                </div>
                 <img
                     src={romain}
-                    width="500"
+                    width="300"
                 />
             </div>
-            <div className="iframeContainer">
-                <iframe className="iframeVideo"
-                    src="https://www.youtube.com/embed/3DJAwvLZp9Q"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen>
+            <div className="seriousGameTitleContainer">
+                <h1 className="seriousGameTitle">SERIOUS GAME</h1>
+            </div>
+            <div className="iframeGameContainer">
+                <iframe className="iframeGame"
+                    src="https://eclisson.duckdns.org/static/"
+                    scrolling="no">
                 </iframe>
             </div>
         </div>
