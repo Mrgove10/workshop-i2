@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickManager : MonoBehaviour
 {
+    public GameManager gameManager;
+    public Camera maincamera;
     // Update is called once per frame
-     void Update () {
-            if (Input.GetMouseButtonDown(0)) {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-                
-                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-                if (hit.collider != null)
-                {
-                    Debug.Log(hit.collider.gameObject.name);
-                }
-            }
-        }
-
+    void Update()
+    {
+        // if button down and the popupisnot open
+        if (Input.GetMouseButtonDown(0) && gameManager.popup.activeSelf == false)
+        {
+            // Debug.Log("click");
+            Ray ray = maincamera.ScreenPointToRay(Input.mousePosition);  
+            RaycastHit hit;
+            Physics.Raycast(ray, out hit);
+            //Debug.Log(hit.collider.transform.name);
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.collider.transform.name);
+                gameManager.LaunchEffect(hit.collider.GetComponent<ClickTarget>().type);
+            }  
+        } 
+    }
 }
