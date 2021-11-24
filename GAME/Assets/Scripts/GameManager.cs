@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject BudgetBar;
     public GameObject QuantiumBar;
     public GameObject SecurityBar;
-    
+
     public GameObject popup;
     public TMP_Text PopUpTitle;
     public TMP_Text PopUpDescription;
@@ -59,39 +59,39 @@ public class GameManager : MonoBehaviour
             case AreaTypes.OnlinePayement:
                 PopUpTitle.text = OnlinePayementInfo.Nom;
                 PopUpDescription.text = OnlinePayementInfo.Description;
-            break;
+                break;
             case AreaTypes.HrDepartment:
                 PopUpTitle.text = HrDepartmentInfo.Nom;
                 PopUpDescription.text = HrDepartmentInfo.Description;
-            break;
+                break;
             case AreaTypes.ItDepartment:
-                PopUpTitle.text =ItDepartmentInfo.Nom;
+                PopUpTitle.text = ItDepartmentInfo.Nom;
                 PopUpDescription.text = ItDepartmentInfo.Description;
-            break;
+                break;
             case AreaTypes.SalesDepartment:
-                PopUpTitle.text =SalesDepartmentInfo.Nom;
+                PopUpTitle.text = SalesDepartmentInfo.Nom;
                 PopUpDescription.text = SalesDepartmentInfo.Description;
-            break;
+                break;
             case AreaTypes.DatabaseSecurity:
-                PopUpTitle.text =DatabaseSecurityInfo.Nom;
+                PopUpTitle.text = DatabaseSecurityInfo.Nom;
                 PopUpDescription.text = DatabaseSecurityInfo.Description;
-            break;
+                break;
             case AreaTypes.RealtimeFraudAnalysis:
-                PopUpTitle.text =RealtimeFraudAnalysisInfo.Nom;
+                PopUpTitle.text = RealtimeFraudAnalysisInfo.Nom;
                 PopUpDescription.text = RealtimeFraudAnalysisInfo.Description;
-            break;
+                break;
             case AreaTypes.HighSpeedTrading:
-                PopUpTitle.text =HighSpeedTradingInfo.Nom;
+                PopUpTitle.text = HighSpeedTradingInfo.Nom;
                 PopUpDescription.text = HighSpeedTradingInfo.Description;
-            break;
+                break;
             case AreaTypes.AccountingDepartment:
-                PopUpTitle.text =AccountingDepartmentInfo.Nom;
+                PopUpTitle.text = AccountingDepartmentInfo.Nom;
                 PopUpDescription.text = AccountingDepartmentInfo.Description;
-            break;
+                break;
             case AreaTypes.CryptoTrading:
                 PopUpTitle.text = CryptoTradingInfo.Nom;
                 PopUpDescription.text = CryptoTradingInfo.Description;
-            break;
+                break;
         }
 
         LaunchPopup();
@@ -99,9 +99,9 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUI()
     {
-      //  BudgetBar.GetComponent<Text>().text = budget.ToString();
-      // QuantiumBar.GetComponent<Text>().text = quantium.ToString();
-       // SecurityBar.GetComponent<Text>().text = security.ToString();
+        BudgetBar.GetComponentInChildren<TMP_Text>().text = budget.ToString();
+        QuantiumBar.GetComponentInChildren<TMP_Text>().text = quantium.ToString();
+        SecurityBar.GetComponentInChildren<TMP_Text>().text = security.ToString();
     }
 }
 

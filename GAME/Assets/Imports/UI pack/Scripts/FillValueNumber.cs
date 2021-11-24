@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FillValueNumber : MonoBehaviour
 {
@@ -10,6 +9,6 @@ public class FillValueNumber : MonoBehaviour
     void Update()
     {
         float amount = TargetImage.fillAmount * 100;
-        gameObject.GetComponent<Text>().text = amount.ToString("F0");
+        gameObject.GetComponent<TMP_Text>().text = amount.ToString("F0");
     }
 }

@@ -7,9 +7,10 @@ public class ClickManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        // if button down and the popupisnot open
+        if (Input.GetMouseButtonDown(0) && gameManager.popup.activeSelf == false)
         {
-            Debug.Log("click");
+            // Debug.Log("click");
             Ray ray = maincamera.ScreenPointToRay(Input.mousePosition);  
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
