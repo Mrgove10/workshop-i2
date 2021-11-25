@@ -8,17 +8,15 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [ReadOnly]
-    public float quantium = 0;
-    [ReadOnly]
-    public float security = 0;
-    [ReadOnly]
-    public float budget = 0;
+    public int quantium = 0;
+    public int security = 50;
+    public int budget = 50000;
 
     // Bar
     public GameObject BudgetBar;
     public GameObject QuantiumBar;
     public GameObject SecurityBar;
+    public int[][] consequenceArray = new int[2][];
 
     // Popup
     public GameObject popup;
@@ -28,6 +26,8 @@ public class GameManager : MonoBehaviour
     public GameObject Action2;
     public TMP_Text Action1Libelle;
     public TMP_Text Action2Libelle;
+    public Button Action1Bt;
+    public Button Action2Bt;
     public Button popupCloseButton;
 
 
@@ -56,6 +56,12 @@ public class GameManager : MonoBehaviour
 
         TooltipAction1.onClick.AddListener(delegate { LaunchTooltip(0); });
         TooltipAction2.onClick.AddListener(delegate { LaunchTooltip(1); });
+        Action1Bt.onClick.AddListener(delegate { ComputeStats(0); });
+        Action2Bt.onClick.AddListener(delegate { ComputeStats(1); });
+
+        consequenceArray[0] = new int[] { 0, 0, 0 };
+        consequenceArray[1] = new int[] { 0, 0, 0 };
+
     }
 
     // Update is called once per frame
@@ -78,12 +84,19 @@ public class GameManager : MonoBehaviour
 
     private void SetPopupActions(List<Actions> actionsList)
     {
-        Action1Libelle.text = actionsList[0].Nom;
-        helpArray[0] = actionsList[0].Description;
+        Actions first = actionsList[0];
+
+        Action1Libelle.text = first.Nom;
+        helpArray[0] = first.Description;
+
+        consequenceArray[0] = new int[] { first.ImpactBudget, first.ImpactSecu, first.ImpactQuanti };
         try
         {
-            Action2Libelle.text = actionsList[1].Nom;
-            helpArray[1] = actionsList[1].Description;
+            Actions second = actionsList[1];
+
+            Action2Libelle.text = second.Nom;
+            helpArray[1] = second.Description;
+            consequenceArray[1] = new int[] { second.ImpactBudget, second.ImpactSecu, second.ImpactQuanti };
             Action2.SetActive(true);
         }
         catch (ArgumentOutOfRangeException)
@@ -101,6 +114,21 @@ public class GameManager : MonoBehaviour
     {
         TooltipTxt.text = helpArray[index];
         Tooltip.SetActive(true);
+    }
+
+    private void ComputeStats(int index)
+    {
+        int[] consequences = consequenceArray[index];
+        int bud = consequences[0];
+        int secu = consequences[1];
+        int quanti = consequences[2];
+
+        if (budget >= Math.Abs(bud))
+        {
+            budget += bud;
+            quantium += quanti;
+            security += secu;
+        }
     }
 
     public void LaunchEffect(AreaTypes type)

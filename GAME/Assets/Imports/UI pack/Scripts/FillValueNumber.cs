@@ -8,7 +8,7 @@ public class FillValueNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float amount = TargetImage.fillAmount * 100;
-        gameObject.GetComponent<TMP_Text>().text = amount.ToString("F0");
+        //float amount = TargetImage.fillAmount * 100;
+        //gameObject.GetComponent<TMP_Text>().text = amount.ToString("F0");
     }
 }
