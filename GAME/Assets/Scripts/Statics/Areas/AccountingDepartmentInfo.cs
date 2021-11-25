@@ -11,7 +11,10 @@ public static class AccountingDepartmentInfo
             "Investir dans ce service en sous-traitant les calculs à un service cloud quantique. (12.000$ /mois)",
             "L'investissement pourrait peut-être améliorer le résultat des calculs.",
             "/!\\ L'investissement a été vain, ce genre de calcul n'a pas besoin d'être quantique.",
-            -12000, 0, 10
+            12000,
+            0,
+            10,
+            0
         ),
     };
 }

@@ -11,7 +11,7 @@ public static class ItDepartmentInfo
             "Utiliser les services clouds quantique pour accélerer le développement des applicatifs (15.000$ /mois).",
             "Un ordinateur plus rapide pourrait peut-être améliorer la productivité des développeurs.",
             "/!\\ L'investissement n'est pas du tout utile. Une machine plus puissante ne remplace pas l'ingéniosité et l'expertise des développeurs",
-            -15000, 0, 10
+            15000, 0, 10, 0
         )
     };
 }

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public int quantium = 0;
     public int security = 50;
-    public int budget = 50000;
+    public int budget = 100000;
 
     // Bar
     public GameObject BudgetBar;
@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public Button Action2Bt;
     public Button popupCloseButton;
 
+    public string[] consequenceArrayText = new string[2] { "", "" };
+
 
     // Tooltip
     public GameObject Tooltip;
@@ -39,6 +41,10 @@ public class GameManager : MonoBehaviour
     public string[] helpArray = new string[2] { "", "" };
     public Button TooltipCloseButton;
 
+    // ErrorTooltip
+    public GameObject ErrorTooltip;
+    public TMP_Text ErrorToolTxt;
+    public Button ErrorToolCloseButton;
 
 
     // Start is called before the first frame update
@@ -52,15 +58,18 @@ public class GameManager : MonoBehaviour
 
 
         Tooltip.SetActive(false);
-        TooltipCloseButton.onClick.AddListener(CloseTooltip);
+        TooltipCloseButton.onClick.AddListener(delegate { CloseTooltip(Tooltip); });
 
-        TooltipAction1.onClick.AddListener(delegate { LaunchTooltip(0); });
-        TooltipAction2.onClick.AddListener(delegate { LaunchTooltip(1); });
+        ErrorTooltip.SetActive(false);
+        ErrorToolCloseButton.onClick.AddListener(delegate { CloseTooltip(ErrorTooltip); });
+
+        TooltipAction1.onClick.AddListener(delegate { LaunchTooltip(0, helpArray); });
+        TooltipAction2.onClick.AddListener(delegate { LaunchTooltip(1, helpArray); });
         Action1Bt.onClick.AddListener(delegate { ComputeStats(0); });
         Action2Bt.onClick.AddListener(delegate { ComputeStats(1); });
 
-        consequenceArray[0] = new int[] { 0, 0, 0 };
-        consequenceArray[1] = new int[] { 0, 0, 0 };
+        consequenceArray[0] = new int[] { 0, 0, 0, 0 };
+        consequenceArray[1] = new int[] { 0, 0, 0, 0 };
 
     }
 
@@ -89,14 +98,16 @@ public class GameManager : MonoBehaviour
         Action1Libelle.text = first.Nom;
         helpArray[0] = first.Description;
 
-        consequenceArray[0] = new int[] { first.ImpactBudget, first.ImpactSecu, first.ImpactQuanti };
+        consequenceArray[0] = new int[] { first.CoutInvestissement, first.ImpactBudget, first.ImpactSecu, first.ImpactQuanti };
+        consequenceArrayText[0] = first.ImpactString;
         try
         {
             Actions second = actionsList[1];
 
             Action2Libelle.text = second.Nom;
             helpArray[1] = second.Description;
-            consequenceArray[1] = new int[] { second.ImpactBudget, second.ImpactSecu, second.ImpactQuanti };
+            consequenceArray[1] = new int[] { second.CoutInvestissement, second.ImpactBudget, second.ImpactSecu, second.ImpactQuanti };
+            consequenceArrayText[1] = second.ImpactString;
             Action2.SetActive(true);
         }
         catch (ArgumentOutOfRangeException)
@@ -105,30 +116,46 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void CloseTooltip()
+    private void CloseTooltip(GameObject tooltip)
     {
-        Tooltip.SetActive(false);
+        tooltip.SetActive(false);
     }
 
-    private void LaunchTooltip(int index)
+    private void LaunchTooltip(int index, string[] strArray)
     {
-        TooltipTxt.text = helpArray[index];
+        TooltipTxt.text = strArray[index];
         Tooltip.SetActive(true);
+    }
+
+    private void LaunchErrorTooltip(string text)
+    {
+        ErrorToolTxt.text = text;
+        ErrorTooltip.SetActive(true);
     }
 
     private void ComputeStats(int index)
     {
         int[] consequences = consequenceArray[index];
-        int bud = consequences[0];
-        int secu = consequences[1];
-        int quanti = consequences[2];
 
-        if (budget >= Math.Abs(bud))
+        int prix = consequences[0];
+        int impactBud = consequences[1];
+        int impactSecu = consequences[2];
+        int impactQuanti = consequences[3];
+
+        if (budget >= prix)
         {
-            budget += bud;
-            quantium += quanti;
-            security += secu;
+            budget -= prix;
+            budget += impactBud;
+            quantium += impactQuanti;
+            security += impactSecu;
+
+            LaunchTooltip(index, consequenceArrayText);
         }
+        else
+        {
+            LaunchErrorTooltip("Budget non suffisant");
+        }
+
     }
 
     public void LaunchEffect(AreaTypes type)

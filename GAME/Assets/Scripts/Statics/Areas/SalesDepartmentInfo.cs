@@ -11,7 +11,7 @@ public class SalesDepartmentInfo
             "Ajouter un service cloud quantique pour trouver de nouveaux clients. (5.000$ /mois).",
             "La sous-traitance des calculs pourrait peut-être une solution pour rechercher de nouveaux clients",
             "L'investissement n'était pas abouti, il n'est pas nécessaire d'avoir un ordinateur quantique pour déterminer de potentiels clients",
-            -5000, 0, 10
+            5000, 0, 10, 0
         )
     };
 }

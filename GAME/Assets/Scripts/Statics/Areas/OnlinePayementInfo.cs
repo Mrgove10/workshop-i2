@@ -12,7 +12,7 @@ public static class OnlinePayementInfo
             "Investir dans la R&D en ajoutant un ordinateur quantique (20.000$ /mois).",
             "L'ajout d'un ordinateur quantique pourrait peut-être améliorer le chiffrement des transactions, donc, la sécurité des échanges.",
             "L'investissement a été utile, votre taux de cybersécurité a augmenté.",
-            -20000, 100, 20
+            20000, 100, 20, 0
         )
     };
 }
