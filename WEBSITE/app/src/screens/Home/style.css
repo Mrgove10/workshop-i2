@@ -57,3 +57,17 @@
     color: white;
     font-size: 30px;
 }
+
+.cheetSheetContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    margin: 42px auto;
+    width: 1042px;
+}
+
+p {
+    margin: 10px;
+}
